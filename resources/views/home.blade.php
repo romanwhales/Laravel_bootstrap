@@ -7,7 +7,12 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Dashboard</div>
                 <div class="panel-body">
-                    You are logged in!
+                    You are logged in!.
+                    @if( Auth::user()->is_admin)
+                        <a href="/admin/user">View Users</a>
+                    @else
+                        
+                    @endif
                 </div>
             </div>
         </div>

@@ -24,6 +24,10 @@ Route::post('/contact',['as'=>'contact_store','uses'=>'AboutController@store']);
 Route::get('/product',['as'=>'product','uses'=>'ProductController@create']);
 Route::post('/product',['as'=>'product_store','uses'=>'ProductController@store']);
 
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+Route::group(['prefix' => 'admin','namespace'=>'admin','middleware'=>'admin'],function(){
+	Route::resource('user','UserController');
+});
